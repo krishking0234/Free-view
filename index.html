@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1f45ff" />
+    <meta name="description" content="Toolora is a fast, private collection of browser-based tools for images, text, data, and developer workflows." />
+    <meta property="og:title" content="Toolora – All-in-One Online Tools" />
+    <meta property="og:description" content="Convert, compress, resize, and optimize your files in seconds." />
+    <meta property="og:type" content="website" />
+    <title>Toolora – All-in-One Online Tools</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231f45ff'/%3E%3Cpath d='M18 20h28v8H36v20h-8V28H18z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header" id="top">
+        <a class="brand" href="#/" aria-label="Toolora home">
+          <span class="brand-mark">T</span>
+          <span class="brand-copy"><strong>Toolora</strong><small>TOOLS, SIMPLIFIED</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+           <a href="#/">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-drop-button">Tools <span>⌄</span></button>
+            <div class="nav-menu">
+              <a href="#/tools">All tools <small>Browse the full directory</small></a>
+              <a href="#/calculators">Calculators <small>Money, study, dates, health</small></a>
+              <a href="#/tools?category=Image">Image tools <small>Compress, resize, convert</small></a>
+              <a href="#/tools?category=PDF">PDF tools <small>Edit, render, transform</small></a>
+            </div>
+          </div>
+          <div class="nav-dropdown"><button type="button" class="nav-drop-button">PDF tools <span>⌄</span></button><div class="nav-menu"><a href="#/tools?category=PDF">PDF directory <small>All PDF utilities</small></a><a href="#/tool/jpg-to-pdf">JPG to PDF <small>Create a PDF from images</small></a><a href="#/tool/split-pdf">Split PDF <small>Separate pages locally</small></a></div></div>
+          <div class="nav-dropdown"><button type="button" class="nav-drop-button">Image tools <span>⌄</span></button><div class="nav-menu"><a href="#/tools?category=Image">Image directory <small>All image utilities</small></a><a href="#/tool/image-compressor">Image compressor <small>Reduce file size</small></a><a href="#/tool/image-resizer">Image resizer <small>Resize with control</small></a></div></div>
+          <a href="#/calculators">Calculators</a>
+          <a href="#/tools?category=Developer">Converters</a>
+        </nav>
+        <div class="header-actions">
+          <a class="header-search-link" href="#/tools" aria-label="Search tools">⌕ <span>Search tools</span></a>
+          <a class="profile-link" id="profile-link" href="#/profile" aria-label="Open profile"><span class="profile-avatar-mini" id="profile-avatar-mini">◎</span><span id="profile-link-label">Profile</span></a>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
+           <a class="button button-small button-ghost header-login" href="#/login">Sign in</a>
+           <a class="button button-small header-signup" href="#/register">Sign up</a>
+          <button class="icon-button mobile-only" id="mobile-menu-toggle" type="button" aria-label="Open menu">☰</button>
+        </div>
+      </header>
+      <div class="mobile-nav" id="mobile-nav" hidden>
+        <a href="#/">Home</a><a href="#/tools">All tools</a><a href="#/calculators">Calculators</a><a href="#/tools?category=Image">Image tools</a><a href="#/tools?category=PDF">PDF tools</a><a href="#/tools?category=Developer">Converters</a><a href="#/login">Sign in</a><a href="#/register">Sign up</a>
+      </div>
+
+      <main id="app" tabindex="-1"></main>
+
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div class="footer-brand"><a class="brand" href="#/"><span class="brand-mark">T</span><span class="brand-copy"><strong>Toolora</strong><small>TOOLS, SIMPLIFIED</small></span></a><p>Everyday file tools, organized for clarity. Fast, private, and designed to stay out of your way.</p><div class="socials"><a href="#/contact" aria-label="Feedback">◎</a><a href="#/contact" aria-label="Email">@</a><a href="#/contact" aria-label="Community">◌</a></div></div>
+          <div><h3>Tools</h3><a href="#/tools">All tools</a><a href="#/tools?category=PDF">PDF tools</a><a href="#/tools?category=Image">Image tools</a><a href="#/calculators">Calculators</a></div>
+          <div><h3>Company</h3><a href="#/about">About us</a><a href="#/contact">Contact us</a><a href="#/contact">Feedback</a><a href="#/privacy">Privacy policy</a></div>
+          <div><h3>Support</h3><a href="#/tools">Help center</a><a href="#/">FAQs</a><a href="#/terms">Terms of service</a><a href="#/privacy">Cookie policy</a></div>
+          <div class="footer-feedback"><h3>Stay in the loop</h3><p>One useful update a month. No noise.</p><form id="newsletter-form"><label class="sr-only" for="newsletter-email">Email address</label><div class="inline-form"><input id="newsletter-email" type="email" placeholder="you@example.com" required /><button class="button button-small" type="submit">Join</button></div><small id="newsletter-status" class="form-status" aria-live="polite"></small></form></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Toolora. Built for the browser.</span><span>Files stay on your device for browser-native tools.</span></div>
+      </footer>
+    </div>
+    <script src="calculators.js"></script>
+    <script src="dragon-head.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Toolora Calculator Tests</title><style>body{font:16px system-ui;margin:30px;background:#f6f8fc;color:#14213d}li{margin:8px 0}.pass{color:#15966d}.fail{color:#c6405b}</style></head>
+<body><h1>Toolora calculator formula tests</h1><p id="summary">Running…</p><ol id="results"></ol><script src="calculators.js?v=tests"></script><script>
+const rows=document.getElementById('results');let passed=0,failed=0;
+function test(name,actual,expected){const ok=actual===expected;ok?passed++:failed++;const item=document.createElement('li');item.className=ok?'pass':'fail';item.textContent=`${ok?'PASS':'FAIL'} — ${name}${ok?'':` (expected ${expected}, got ${actual})`}`;rows.appendChild(item);}
+test('safe expression precedence',window.TooloraCalculators.evaluateExpression('2*(3+4)'),14);
+test('division by zero rejected',(()=>{try{window.TooloraCalculators.evaluateExpression('4/0');return 'accepted';}catch(error){return 'rejected';}})(),'rejected');
+test('percentage formula',window.TooloraCalculators.calculate('percentage',{mode:'of',a:'15',b:'200'}).value,'30 (15% of 200)');
+test('EMI formula includes payment',window.TooloraCalculators.calculate('emi',{principal:'500000',rate:'10',months:'60',currency:'INR'}).value.includes('Monthly payment:'),true);
+test('BMI formula',window.TooloraCalculators.calculate('bmi',{weight:'70',height:'175'}).value.startsWith('BMI: 22.86'),true);
+test('quadratic roots',window.TooloraCalculators.calculate('quadratic',{a:'1',b:'-5',c:'6'}).value,'x₁ = 3\nx₂ = 2');
+test('IP subnet network',window.TooloraCalculators.calculate('ipSubnet',{cidr:'192.168.1.10/24'}).value.includes('Network: 192.168.1.0'),true);
+document.getElementById('summary').textContent=`${passed} passed, ${failed} failed`;
+</script></body></html>

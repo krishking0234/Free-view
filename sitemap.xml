@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://toolora.example/</loc></url>
+  <url><loc>https://toolora.example/tools</loc></url>
+  <url><loc>https://toolora.example/calculators</loc></url>
+  <url><loc>https://toolora.example/calculator/basic-calculator</loc></url>
+  <url><loc>https://toolora.example/calculator/emi</loc></url>
+  <url><loc>https://toolora.example/calculator/bmi</loc></url>
+  <url><loc>https://toolora.example/calculator/unit-converter</loc></url>
+  <url><loc>https://toolora.example/about</loc></url>
+  <url><loc>https://toolora.example/privacy</loc></url>
+  <url><loc>https://toolora.example/terms</loc></url>
+  <url><loc>https://toolora.example/tool/image-compressor</loc></url>
+  <url><loc>https://toolora.example/tool/image-resizer</loc></url>
+  <url><loc>https://toolora.example/tool/carved-wooden-dragon-head</loc></url>
+  <url><loc>https://toolora.example/tool/json-formatter</loc></url>
+  <url><loc>https://toolora.example/tool/word-counter</loc></url>
+</urlset>

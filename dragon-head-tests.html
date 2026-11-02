@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><title>Toolora Dragon Head Tests</title><style>body{font:16px system-ui;margin:30px;background:#f6f8fc;color:#14213d}li{margin:8px 0}.pass{color:#15966d}.fail{color:#c6405b}</style></head>
+  <body><h1>Carved wooden dragon head tests</h1><p id="summary">Running…</p><ol id="results"></ol><script src="dragon-head.js"></script><script>
+    const rows=document.getElementById('results');let passed=0,failed=0;
+    function test(name,actual,expected){const ok=actual===expected;ok?passed++:failed++;const item=document.createElement('li');item.className=ok?'pass':'fail';item.textContent=`${ok?'PASS':'FAIL'} — ${name}${ok?'':` (expected ${expected}, got ${actual})`}`;rows.appendChild(item);}
+    const api=window.TooloraDragonHead;
+    test('unknown wood tone falls back to walnut',api.normalizeDragonHeadOptions({tone:'pine'}).tone,'walnut');
+    test('detail is clamped',api.normalizeDragonHeadOptions({detail:99}).detail,5);
+    test('unsafe inscription characters are removed',api.sanitizeDragonText('<fire>'),'fire');
+    const svg=api.buildDragonHeadSvg({tone:'ebony',inscription:'MORI'});
+    test('SVG includes accessible title and selected tone',svg.includes('data-wood-tone="ebony"')&&svg.includes('Carved wooden dragon head in ebony'),true);
+    test('transparent option omits the plaque background',!api.buildDragonHeadSvg({transparent:true}).includes('<rect width="800"'),true);
+    document.getElementById('summary').textContent=`${passed} passed, ${failed} failed`;
+  </script></body>
+</html>
